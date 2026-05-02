@@ -406,8 +406,7 @@ document.getElementById(‘preview-section’).scrollIntoView({ behavior: ‘smo
 }
 
 function exportAnki() {
-// Use <br> for paragraph breaks — Anki renders HTML in card fields
-function flatten(s) { return s.replace(/\n\n/g, ‘<br><br>’).replace(/\n/g, ‘<br>’).trim(); }
+function flatten(s) { return s.replace(/\n\n/g, ’ | ‘).replace(/\n/g, ’ ‘).trim(); }
 const content = cards.map(function(c) {
 return flatten(c.front) + ‘\t’ + flatten(c.back);
 }).join(’\n’);
